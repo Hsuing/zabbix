@@ -1,5 +1,7 @@
 ## 1.redis
 
+> 注意脚本有可执行权限
+
 ```
 #脚本放入下面目录
 /opt/zabbix/script
@@ -24,20 +26,24 @@
 
 　　在nginx的配置文件中配置上：
 
-location /hanstatus {
-	access_log off;
-	allow 127.0.0.1;
-	allow 192.168.136.0/32;
-	allow 218.245.64.130;
-	deny all;
+server {
+    listen 10080 ;
+    server_name  127.0.0.1;
+
+    location /tgstatus {
+	    stub_status on;
+            access_log  off;
+            allow 127.0.0.1;
+            deny all;
+   }
+    location /hanstatus {
+            check_status;
+            access_log   off;
+            allow 127.0.0.1;
+            deny all;
+        }
 }
-location /tgstatus {
-	stub_status on;
-	access_log off;
-	allow 127.0.0.1;
-	allow 192.168.136.0/32;
-	deny all;
-}
+
 ```
 
 ```
