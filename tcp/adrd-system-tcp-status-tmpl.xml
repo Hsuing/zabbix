@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>4.4</version>
+    <date>2021-05-25T09:17:42Z</date>
+    <groups>
+        <group>
+            <name>adrd</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>adrd-system-tcp-status-tmpl</template>
+            <name>adrd-system-tcp-status-tmpl</name>
+            <groups>
+                <group>
+                    <name>adrd</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>TCP Status</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>TCP Status CLOSED_WAIT</name>
+                    <key>tcp_status[CLOSE-WAIT]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status CLOSED</name>
+                    <key>tcp_status[CLOSED]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status CLOSING</name>
+                    <key>tcp_status[CLOSING]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status ESTABLISHED</name>
+                    <key>tcp_status[ESTAB]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                    <triggers>
+                        <trigger>
+                            <expression>{last()}&gt;2000</expression>
+                            <name>TCP ESTAB {ITEM.VALUE1} &gt;2000 on {HOST.NAME}</name>
+                            <priority>AVERAGE</priority>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>TCP Status FIN-WAIT-1</name>
+                    <key>tcp_status[FIN-WAIT-1]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status FIN-WAIT-2</name>
+                    <key>tcp_status[FIN-WAIT-2]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status LAST-ACK</name>
+                    <key>tcp_status[LAST-ACK]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status LISTEN</name>
+                    <key>tcp_status[LISTEN]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status SYN-RECV</name>
+                    <key>tcp_status[SYN-RECV]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status SYN-SENT</name>
+                    <key>tcp_status[SYN-SENT]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+                <item>
+                    <name>TCP Status TIME-WAIT</name>
+                    <key>tcp_status[TIME-WAIT]</key>
+                    <delay>30</delay>
+                    <applications>
+                        <application>
+                            <name>TCP Status</name>
+                        </application>
+                    </applications>
+                </item>
+            </items>
+        </template>
+    </templates>
+    <graphs>
+        <graph>
+            <name>TCP Status</name>
+            <graph_items>
+                <graph_item>
+                    <color>1A7C11</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[CLOSED]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>1</sortorder>
+                    <color>F63100</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[CLOSE-WAIT]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>2</sortorder>
+                    <color>2774A4</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[CLOSING]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>3</sortorder>
+                    <color>A54F10</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[ESTAB]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>4</sortorder>
+                    <color>FC6EA3</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[FIN-WAIT-1]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>5</sortorder>
+                    <color>6C59DC</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[FIN-WAIT-2]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>6</sortorder>
+                    <color>AC8C14</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[LAST-ACK]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>7</sortorder>
+                    <color>611F27</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[LISTEN]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>8</sortorder>
+                    <color>F230E0</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[SYN-RECV]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>9</sortorder>
+                    <color>5CCD18</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[SYN-SENT]</key>
+                    </item>
+                </graph_item>
+                <graph_item>
+                    <sortorder>10</sortorder>
+                    <color>BB2A02</color>
+                    <item>
+                        <host>adrd-system-tcp-status-tmpl</host>
+                        <key>tcp_status[TIME-WAIT]</key>
+                    </item>
+                </graph_item>
+            </graph_items>
+        </graph>
+    </graphs>
+</zabbix_export>
