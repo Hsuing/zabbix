@@ -1,4 +1,6 @@
 #!/bin/bash
+#auth han
+
 HOST="127.0.0.1"
 PORT="10080"
 NGINX_STATUS=tgstatus
