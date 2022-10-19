@@ -28,6 +28,16 @@
 
 　　在nginx的配置文件中配置上：
 
+upstream meUP {
+	vnswrr;
+	server 127.0.0.1:8000 max_fails=5 fail_timeout=30s;
+	server 127.0.0.1:8000  max_fails=5 fail_timeout=30s;
+	server 127.0.0.1:8000 max_fails=5 fail_timeout=30s backup;
+	keepalive 20000;
+	check interval=4000 rise=2 fall=3 timeout=3500 type=tcp;
+	check_keepalive_requests 100;
+}
+
 server {
     listen 10080 ;
     server_name  127.0.0.1;
